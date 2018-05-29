@@ -13,12 +13,13 @@ By the end of the course, you’ll be able to build, test, deploy, scale and mon
 <H2>What You Will Learn</H2>
 <DIV class=book-info-will-learn-text>
 <UL>
-<LI>Set up your development environment to build serverless applications 
-<LI>Approach common web development tasks in a serverless scenario and master the most common serverless architectural patterns 
-<LI>Use the serverless framework to build a complete web application with JavaScript 
-<LI>Apply software development best practices to serverless app development 
-<LI>Monitor, profile, and debug a live distributed application using managed services 
-<LI>Common patterns in serverless solutions </LI></UL></DIV>
+<LI>Implement over 15 microservices architecture patterns without needing containers or EC2 instances 
+<LI>Build, test, deploy and maintain serverless microservices 
+<LI>Speed up delivery, flexibility and time to market using serverless microservices 
+<LI>Get serverless best practices and recommendation on scaling out and enforcing security 
+<LI>Debug, monitor and observe your serverless stack 
+<LI>Add your microservices to a continuous integration & continuous delivery pipeline 
+<LI>Estimate, and reduce maintenance and running costs </LI></UL></DIV>
 
 ## Instructions and Navigation
 ### Assumed Knowledge
