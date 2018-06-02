@@ -1,84 +1,123 @@
-# Implementing Serverless Microservices Architecture Patterns [Video]
-This is the code repository for [Implementing Serverless Microservices Architecture Patterns [Video]](https://www.packtpub.com/application-development/implementing-serverless-microservices-architecture-patterns-video?utm_source=github&utm_medium=repository&utm_campaign=9781788839570), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
-## About the Video Course
-Video Description
-Building a microservices platform using virtual machines or containers, involves a lot of initial and ongoing effort and there is a cost associated with having idle services running, maintenance of the boxes and a configuration complexity involved in scaling up and down.
+Copyright (c) 2017-2018 Starwolf Ltd and Richard Freeman. All Rights Reserved.
 
-In this course, We will show you how Serverless computing can be used to implement the majority of the Microservice architecture patterns and when put in a continuous integration & continuous delivery pipeline; can dramatically increase the delivery speed, productivity and flexibility of the development team in your organization, while reducing the overall running, operational and maintenance costs.
-
-We start by introducing the microservice patterns that are typically used with containers, and show you throughout the course how these can efficiently be implemented using serverless computing. This includes the serverless patterns related to non-relational databases, relational databases, event sourcing, command query responsibility segregation (CQRS), messaging, API composition, monitoring, observability, continuous integration and continuous delivery pipelines.
-
-By the end of the course, you’ll be able to build, test, deploy, scale and monitor your microservices with ease using Serverless computing in a continuous delivery pipeline.
-
-<H2>What You Will Learn</H2>
-<DIV class=book-info-will-learn-text>
-<UL>
-<LI>Implement over 15 microservices architecture patterns without needing containers or EC2 instances 
-<LI>Build, test, deploy and maintain serverless microservices 
-<LI>Speed up delivery, flexibility and time to market using serverless microservices 
-<LI>Get serverless best practices and recommendation on scaling out and enforcing security 
-<LI>Debug, monitor and observe your serverless stack 
-<LI>Add your microservices to a continuous integration & continuous delivery pipeline 
-<LI>Estimate, and reduce maintenance and running costs </LI></UL></DIV>
-
-## Instructions and Navigation
-### Assumed Knowledge
-To fully benefit from the coverage included in this course, you will need:<br/>
-● Prior working knowledge of programming languages such as Python, node.js, C#, Java, GO
-
-● (Optional) Familiarity with Git and GitHub for source control
-
-● (Optional) Experience with REST APIs, microservices and AWS
-
-### Technical Requirements
-This course has the following software requirements:<br/>
-● An editor like Atom, Sublime Text or Notepad++ an
-
-● Integrated Development Environment (IDE) like Eclipse with PyDev or Jetbrains PyCharm
-
-● For Windows Install Linux Bash Shell
-
-● Control Panel > Programs > Turn Windows Features On Or Off. 
-
-● Enable the “Windows Subsystem for Linux” option in the list, and then click the “OK” button.
-
-● Java 8+ SE for Eclipse PyDev
-
-● Python 2.6.5+
-
-● Python pip
-
-○ pip install -r requirements.txt
-
-● Windows: AWS Command Line Interface 
-
-○ aws configure
-
-● Linux AWS Command Line Interface
-
-○ pip install awscli
-
-○ aws configure
-
-● Authy mobile application (for AWS Multi-Factor Authentication)
-
-This course has been tested on the following system configuration:
-
-● OS: Windows 10, Ubuntu Bash Shell
-
-● Processor: Intel Core i5 CPU @ 3.0 Ghz
-
-● Memory: 8GB
-
-● Hard Disk Space: 2TB
-
-● Video Card: AMD Radeon 1GB Video Memory
+Licensed under the Apache License, Version 2.0 (the "License").
+You may not use this file except in compliance with the License.
+A copy of the License is located at http://www.apache.org/licenses/LICENSE-2.0 or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 
-## Related Products
-* [Building a Scalable Serverless Microservice REST Data API [Video]](https://www.packtpub.com/application-development/building-scalable-serverless-microservice-rest-data-api-video?utm_source=github&utm_medium=repository&utm_campaign=9781788622318)
+## Implementing Serverless Microservices Architecture Patterns [Video]
 
-* [AWS Lambda and the Serverless Framework - Hands-On Learning!](https://www.packtpub.com/networking-and-servers/aws-lambda-and-serverless-framework-hands-learning?utm_source=github&utm_medium=repository&utm_campaign=9781789349955)
+In this repository, I share parts of my source code from my two Serverless video courses, specifically implementing a scalable Serverless data API using API Gateway, Lambda and DynamoDB. This repository includes full bash scripts that can be used to unit test, build, package, deploy, and run integration tests. The Python code is written defensively to deal with any API exception and I've included code to insert records from a file into DynamoDB as well as code to query it efficiently.
 
-* [Serverless Programming Solutions [Video]](https://www.packtpub.com/application-development/serverless-programming-solutions-video?utm_source=github&utm_medium=repository&utm_campaign=9781788622325)
+Additional implemented Serverless pattern architecture, source code, shell scripts, config and walkthroughs are provided with my video courses:
+
+
+|For beginners and intermediates, the [full Serverless Data API](https://www.packtpub.com/application-development/building-scalable-serverless-microservice-rest-data-api-video?utm_source=github&utm_medium=repository&utm_campaign=9781788839570) code, configuration and a detailed walk through |For intermediate or advanced users, I cover the implementation of [15+ serverless microservice patterns](https://www.packtpub.com/application-development/implementing-serverless-microservices-architecture-patterns-video?utm_source=github&utm_medium=repository&utm_campaign=9781788839570) with original content, code, configuration and detailed walk through |
+|:----------|:-------------|
+| [![Building a Scalable Serverless Microservice REST Data API Video Course](images/building-scalable-serverless-microservice-rest-data-api-video.png "Building a Scalable Serverless Microservice REST Data API Video Course")](https://www.packtpub.com/application-development/building-scalable-serverless-microservice-rest-data-api-video)|  [![Implementing Serverless Microservices Architecture Patterns Video Course](./images/implementing-serverless-microservices-architecture-patterns-video.png "Implementing Serverless Microservices Architecture Patterns Video Course")](https://www.packtpub.com/application-development/implementing-serverless-microservices-architecture-patterns-video) |
+
+
+
+### 1. Windows Only
+
+A lot can be done with the web interface in the AWS Management console, but most often that is time consuming, repetitive and prone to error, and not recommended for production deployments. What is accepted as best practice is to deploy and manage your infrastructure using code and configuration only.
+
+Using bash makes your life much easier when deploying and managing you serverless stack. I think all analysts, data scientists, architects, administrators, DBAs, developers, DevOps and technical people should know some basic bash and be able to run shell scripts, which are typically used on LINUX and UNIX (including macOS Terminal).
+
+Alternatively you can adapt the scripts to use MS-DOS or Powershell but it's not something I recommended given that bash can now run natively on Windows 10+ as a feature.
+
+Install Bash for Windows:
+
+* Control Panel > Programs > Turn Windows Features On Or Off. 
+* Enable the `Windows Subsystem for Linux` option in the list, and then click the `OK` button.
+* Select Ubuntu
+* [Detailed guide](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/)
+
+### 2. Update Ubuntu, Install Git and Clone Repository
+```
+$ sudo apt-get update
+$ sudo apt-get -y upgrade
+$ apt-get install git-core
+$ mkdir ~/git
+$ cd ~/git
+$ git clone https://github.com/PacktPublishing/Implementing-Microservice-Architecture-using-Serverless-Computing-on-AWS
+```
+
+### 3. Install Python and Dependencies
+
+The Lambda code uses Python. Pip is a tool for installing and managing Python packages. The packages required for the severless data API are listed in  `requirements.txt` and can be installed using pip
+
+```
+$ apt-get -y install python2.7 python-pip
+$ cd Implementing-Microservice-Architecture-using-Serverless-Computing-on-AWS/serverless.microservice.data.api
+$ sudo pip install -r requirements.txt
+```
+
+### 3. Install and Setup AWS CLI
+
+You will need to create a user, AWS keys, and enter them them running aws configure. more details are available in [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/setup-awscli.html) or my courses.
+
+```
+$ pip install awscli --upgrade --user
+$ aws configure
+```
+
+### 4. Update AccountId, Bucket and Profile
+Here I assume your AWS profile is `demo` you can change that under `serverless.microservice.data.api/bash/apigateway-lambda-dynamodb/common-variables.sh`. 
+You will need to use a bucket or create one if you haven't already:
+```
+$ aws s3api create-bucket --bucket mynewbucket231 --profile demo --create-bucket-configuration Loc
+ationConstraint=eu-west-1 --region eu-west-1
+
+```
+You will also need to change the AWS accountId (current set to 000000000000). The AWS accountId is also used in some IAM policies in the IAM folder. In addition the region will have to be changed.
+
+to replace your accountId (assume your AWS accountId is 111111111111) you can do it manually or run:
+```
+find ./ -type f -exec sed -i '' -e 's/000000000000/111111111111/' {} \;
+```
+
+### 5. Run Unit Tests
+Change directory to the main bash folder
+```
+$ cd bash/apigateway-lambda-dynamodb/
+$ ./unit-test-lambda.sh
+```
+
+### 6. Build Package and Deploy the Serverless API
+This also creates the IAM Polices and IAM Roles using the AWS CLI that will be required for the Lambda function.
+```
+$ ./build-package-deploy-lambda-dynamo-data-api.sh
+```
+In less than a minute you should have a stack. Otherwise look at the error messages, CloudFormation stack and ensure your credentials are setup correctly.
+
+### 7. Run Lambda Integration Test
+Once the stack is up and running, you can run an integration test to check that the Lambda is working.
+```
+./invoke-lambda.sh
+```
+
+### 8. Add data to DynamoDb table
+
+Change to the DynamoDB Python directory and run the Python code, you can also run this under you favourite IDE like PyDev or PyCharm.
+```
+$ (cd ../../aws_dynamo; python dynamo_insert_items_from_file.py)
+```
+
+### 9. AWS Management Console
+Now the stack is up you can have a look at the API Gateway in the AWS Management Console and test the API in your browser.
+* API Gateway > lambda-dynamo-data-api
+* Stages > Prod > Get
+* Copy the Invoke URL into a new tab, e.g. https://XXXXXXXXXX.execute-api.eu-west-1.amazonaws.com/Prod/visits/{resourceId}
+* You should get a message `resource_id not a number` as the ID is not valid
+* Replace {resourceId} in the URL with 324
+if all is working you should see some returned JSON records. Well done if so!
+
+### 10. Deleting the stack
+Go back to the main bash folder and delete the cloudFormation serverless stack.
+
+```
+$ ./delete-lambda-dynamo-data-api.sh
+```
+
 
